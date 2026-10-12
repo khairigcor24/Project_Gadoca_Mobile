@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gadoca_primary">#007A55</color>
+    <color name="gadoca_primary_dark">#005C41</color>
+    <color name="gadoca_secondary">#E8F5E9</color>
+    <color name="gadoca_accent">#D4A373</color>
+    <color name="gadoca_background">#FAFAFA</color>
+    <color name="gadoca_surface">#FFFFFF</color>
+    <color name="gadoca_text_dark">#1F2937</color>
+    <color name="gadoca_text_muted">#6B7280</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

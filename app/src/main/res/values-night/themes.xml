@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Project_FarhanGadoca_Mobilee" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gadoca_primary</item>
+        <item name="colorPrimaryDark">@color/gadoca_primary_dark</item>
+        <item name="colorSecondary">@color/gadoca_secondary</item>
+        <item name="android:windowBackground">@color/gadoca_background</item>
+        <item name="colorSurface">@color/gadoca_surface</item>
+        <item name="android:textColorPrimary">@color/gadoca_text_dark</item>
+        <item name="android:textColorSecondary">@color/gadoca_text_muted</item>
+    </style>
+    <style name="Theme.Project_FarhanGadoca_Mobilee" parent="Base.Theme.Project_FarhanGadoca_Mobilee" />
+</resources>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gadoca_background"
+    tools:context=".DeveloperProfileActivity">
+
+    <!-- Top Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/gadoca_surface"
+        app:title="Profil Developer"
+        app:titleTextColor="@color/gadoca_text_dark"
+        app:navigationIcon="@drawable/ic_arrow_back_24" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <!-- Avatar / Photo Circle -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/gadoca_primary"
+                app:cardBackgroundColor="@color/gadoca_secondary">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gambargadoca"
+                    android:scaleType="centerInside"
+                    android:padding="16dp"
+                    android:contentDescription="Developer Avatar" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Farhan Gadoca"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/gadoca_text_dark"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android &amp; Mobile Developer"
+                android:textSize="13sp"
+                android:textColor="@color/gadoca_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Info Card: Bio & Details -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E5E7EB"
+                app:cardBackgroundColor="@color/gadoca_surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tentang Saya"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gadoca_primary"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mahasiswa aktif dan pengembang aplikasi mobile yang berfokus pada arsitektur modern Android (Jetpack Compose, Kotlin, Material 3) serta pembuatan UI/UX yang intuitif."
+                        android:textSize="13sp"
+                        android:textColor="@color/gadoca_text_dark"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Hobi -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hobi"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gadoca_primary"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ngoding, Menikmati Kopi Hitam, Eksplorasi UI/UX Design, Gaming."
+                        android:textSize="13sp"
+                        android:textColor="@color/gadoca_text_dark"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Kekuatan Terbesar -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kekuatan Terbesar"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gadoca_primary"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kemampuan problem-solving yang cepat, ketekunan dalam debugging, dan konsistensi dalam penulisan kode yang bersih (Clean Code)."
+                        android:textSize="13sp"
+                        android:textColor="@color/gadoca_text_dark" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Social Media Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E5E7EB"
+                app:cardBackgroundColor="@color/gadoca_surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Media Sosial &amp; Kontak"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gadoca_primary"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GitHub: github.com/farhan24ti\nLinkedIn: linkedin.com/in/farhan-gadoca\nInstagram: @farhangadoca\nEmail: farhan@gadoca.com"
+                        android:textSize="13sp"
+                        android:textColor="@color/gadoca_text_dark"
+                        android:lineSpacingExtra="6dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Logout Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Keluar / Logout"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                app:cornerRadius="26dp"
+                app:strokeColor="#EF4444"
+                android:textColor="#EF4444"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

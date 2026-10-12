@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Gadoca</string>
+    <string name="welcome_title">Sejenak untuk kopi.\nSelalu untuk kamu.</string>
+    <string name="start_enjoying">Mulai menikmati →</string>
+    <string name="already_have_account">Sudah punya akun? Masuk</string>
+    <string name="visit_our_web">Kunjungi Web Kami</string>
+    <string name="login_title">Masuk</string>
+    <string name="register_title">Daftar Gadoca</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Kata Sandi</string>
+    <string name="name_hint">Nama Lengkap</string>
+    <string name="phone_hint">Nomor ponsel</string>
+    <string name="confirm_password_hint">Konfirmasi kata sandi</string>
+    <string name="login_button">Masuk →</string>
+    <string name="register_button">Buat akun →</string>
+    <string name="login_subtitle">Ritual baik dimulai di sini.</string>
+    <string name="login_desc">Masuk untuk memesan dan mengumpulkan poin.</string>
+    <string name="register_subtitle">Jadi bagian dari cerita.</string>
+    <string name="register_desc">Satu akun untuk kopi, meja, dan hadiah favoritmu.</string>
+    <string name="forgot_password">Lupa kata sandi?</string>
+    <string name="or_text">atau</string>
+    <string name="login_with_google">Lanjutkan dengan Google</string>
+    <string name="dont_have_account">Belum punya akun? Daftar sekarang</string>
+    <string name="terms_agreement">Saya setuju dengan Syarat Layanan dan Kebijakan Privasi Gadoca.</string>
+    <string name="password_requirement">Minimal 8 karakter, termasuk huruf dan angka.</string>
+    <string name="welcome_badge">Kopi baik. Cerita hangat.</string>
+    <string name="welcome_tag">SELAMAT DATANG DI GADOCA</string>
+    <string name="welcome_desc">Pesan favoritmu, temukan sudut nyaman, dan nikmati hadiah di setiap kunjungan.</string>
+    <string name="footer_note">Konsep aplikasi · Menu dan harga merupakan contoh</string>
+</resources>
