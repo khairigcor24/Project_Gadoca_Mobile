@@ -48,5 +48,10 @@ class SearchFilterActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding.tabPesanan.setOnClickListener {
+            startActivity(Intent(this, OrderActivity::class.java))
+            finish()
+        }
     }
 }

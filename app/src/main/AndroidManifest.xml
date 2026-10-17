@@ -55,6 +55,11 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".OrderActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".SearchFilterActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />

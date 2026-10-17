@@ -122,6 +122,7 @@
 
                     <!-- Chip 1: Semua (Active) -->
                     <TextView
+                        android:id="@+id/chipSemua"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:text="Semua"
@@ -135,6 +136,7 @@
 
                     <!-- Chip 2: Kopi -->
                     <TextView
+                        android:id="@+id/chipKopi"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:text="Kopi"
@@ -147,6 +149,7 @@
 
                     <!-- Chip 3: Pastry -->
                     <TextView
+                        android:id="@+id/chipPastry"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:text="Pastry"
@@ -159,6 +162,7 @@
 
                     <!-- Chip 4: Minuman -->
                     <TextView
+                        android:id="@+id/chipMinuman"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:text="Minuman"
@@ -168,41 +172,6 @@
                         android:gravity="center"
                         android:paddingHorizontal="20dp"
                         android:layout_marginEnd="8dp" />
-
-                    <!-- Chip 5: Roti -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Roti"
-                        android:textSize="13sp"
-                        android:textColor="@color/gadoca_text_dark"
-                        android:background="@drawable/bg_chip_inactive"
-                        android:gravity="center"
-                        android:paddingHorizontal="20dp"
-                        android:layout_marginEnd="8dp" />
-
-                    <!-- Chip 6: Makanan -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Makanan"
-                        android:textSize="13sp"
-                        android:textColor="@color/gadoca_text_dark"
-                        android:background="@drawable/bg_chip_inactive"
-                        android:gravity="center"
-                        android:paddingHorizontal="20dp"
-                        android:layout_marginEnd="8dp" />
-
-                    <!-- Chip 7: Snack -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Snack"
-                        android:textSize="13sp"
-                        android:textColor="@color/gadoca_text_dark"
-                        android:background="@drawable/bg_chip_inactive"
-                        android:gravity="center"
-                        android:paddingHorizontal="20dp" />
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -226,6 +195,7 @@
                     android:textColor="@color/gadoca_text_dark" />
 
                 <TextView
+                    android:id="@+id/tvMenuCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4 menu pilihan"
@@ -235,12 +205,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/productRowOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="12dp">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/productBusta"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -305,10 +277,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addBusta"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>
@@ -317,6 +292,7 @@
 
                 <!-- Product 2: Cappuccino -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/productBica"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -381,10 +357,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addBica"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>
@@ -394,6 +373,7 @@
 
             <!-- Product Grid Row 2 -->
             <LinearLayout
+                android:id="@+id/productRowTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -401,6 +381,7 @@
 
                 <!-- Product 3: Butter Croissant -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/productButterscotch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -465,10 +446,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addButterscotch"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>
@@ -477,6 +461,7 @@
 
                 <!-- Product 4: Matcha Latte -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/productDarkChoco"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -541,10 +526,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addDarkChoco"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>

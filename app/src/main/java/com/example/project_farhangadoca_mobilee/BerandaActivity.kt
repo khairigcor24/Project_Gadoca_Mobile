@@ -37,5 +37,9 @@ class BerandaActivity : AppCompatActivity() {
             val intent = Intent(this, DeveloperProfileActivity::class.java)
             startActivity(intent)
         }
+
+        binding.tabPesanan.setOnClickListener {
+            startActivity(Intent(this, OrderActivity::class.java))
+        }
     }
 }
