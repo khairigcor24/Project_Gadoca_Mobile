@@ -556,18 +556,22 @@
     <!-- Bottom Navigation Bar (Menu Active) -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="76dp"
         android:orientation="horizontal"
-        android:background="@color/gadoca_surface"
-        android:elevation="8dp"
-        android:gravity="center_vertical">
+        android:background="@drawable/bg_bottom_navigation"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp">
 
         <!-- Tab 1: Beranda -->
         <LinearLayout
             android:id="@+id/tabBeranda"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="58dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:orientation="vertical"
             android:gravity="center"
             android:background="?attr/selectableItemBackground">
@@ -576,13 +580,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/ic_home_24"
+                android:tint="@color/gadoca_text_muted"
                 android:contentDescription="Beranda" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Beranda"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textColor="@color/gadoca_text_muted"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
@@ -591,41 +596,40 @@
         <LinearLayout
             android:id="@+id/tabMenu"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="58dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="?attr/selectableItemBackground">
+            android:background="@drawable/bg_nav_item_active"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/ic_menu_tab_24"
+                android:tint="@color/gadoca_primary"
                 android:contentDescription="Menu" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Menu"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/gadoca_primary"
                 android:layout_marginTop="2dp" />
 
-            <!-- Active dot -->
-            <View
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:background="@drawable/bg_indicator_active"
-                android:layout_marginTop="2dp" />
         </LinearLayout>
 
         <!-- Tab 3: Pesanan -->
         <LinearLayout
             android:id="@+id/tabPesanan"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="58dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:orientation="vertical"
             android:gravity="center"
             android:background="?attr/selectableItemBackground">
@@ -634,13 +638,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/ic_orders_24"
+                android:tint="@color/gadoca_text_muted"
                 android:contentDescription="Pesanan" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pesanan"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textColor="@color/gadoca_text_muted"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
@@ -649,8 +654,9 @@
         <LinearLayout
             android:id="@+id/tabAkun"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="58dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:orientation="vertical"
             android:gravity="center"
             android:background="?attr/selectableItemBackground">
@@ -659,13 +665,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/ic_profile_24"
+                android:tint="@color/gadoca_text_muted"
                 android:contentDescription="Akun" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Akun"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textColor="@color/gadoca_text_muted"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
