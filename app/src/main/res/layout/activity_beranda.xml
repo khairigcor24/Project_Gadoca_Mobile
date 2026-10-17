@@ -123,14 +123,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text=" Gadoca · Cabang Taman"
+                    android:text=" Gadoca · Cabang Rumbai"
                     android:textSize="13sp"
                     android:textColor="@color/gadoca_text_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buka hingga 22.00"
+                    android:text="Buka hingga 11.00"
                     android:textSize="12sp"
                     android:textColor="@color/gadoca_primary"
                     android:textStyle="bold" />
@@ -152,7 +152,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/img_coffee_banner"
+                        android:src="@drawable/cafe"
                         android:scaleType="centerCrop"
                         android:contentDescription="Hero Promo" />
 
@@ -317,7 +317,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/busta"
                             android:scaleType="centerCrop"
                             android:contentDescription="Es Kopi" />
 
@@ -330,7 +330,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Es Kopi Gula Aren"
+                                android:text="Busta"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"
@@ -393,7 +393,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/buter"
                             android:scaleType="centerCrop"
                             android:contentDescription="Croissant" />
 
@@ -406,7 +406,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Butter Croissant"
+                                android:text="Butterscotch"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"

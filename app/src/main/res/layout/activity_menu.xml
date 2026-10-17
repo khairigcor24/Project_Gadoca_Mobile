@@ -234,14 +234,12 @@
                     android:textColor="@color/gadoca_primary" />
             </LinearLayout>
 
-            <!-- Product Grid Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="12dp">
 
-                <!-- Product 1: Es Kopi Gula Aren -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -261,7 +259,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/busta"
                             android:scaleType="centerCrop"
                             android:contentDescription="Es Kopi" />
 
@@ -274,7 +272,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Es Kopi Gula Aren"
+                                android:text="Busta"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"
@@ -337,9 +335,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/bica"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Cappuccino" />
+                            android:contentDescription="Bica" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -350,7 +348,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Cappuccino"
+                                android:text="Bica"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"
@@ -421,7 +419,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/buter"
                             android:scaleType="centerCrop"
                             android:contentDescription="Croissant" />
 
@@ -434,7 +432,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Butter Croissant"
+                                android:text="Butterscotch"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"
@@ -497,7 +495,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:src="@drawable/img_coffee_banner"
+                            android:src="@drawable/dark"
                             android:scaleType="centerCrop"
                             android:contentDescription="Matcha" />
 
@@ -510,7 +508,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Matcha Latte"
+                                android:text="DarkChoco"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/gadoca_text_dark"
@@ -537,7 +535,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Rp32.000"
+                                    android:text="Rp25.000"
                                     android:textSize="12sp"
                                     android:textStyle="bold"
                                     android:textColor="@color/gadoca_primary" />

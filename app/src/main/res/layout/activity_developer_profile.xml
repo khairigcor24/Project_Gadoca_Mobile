@@ -91,55 +91,55 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="Tentang Saya"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
                         android:textColor="@color/gadoca_primary"
-                        android:layout_marginBottom="8dp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mahasiswa aktif dan pengembang aplikasi mobile yang berfokus pada arsitektur modern Android (Jetpack Compose, Kotlin, Material 3) serta pembuatan UI/UX yang intuitif."
-                        android:textSize="13sp"
-                        android:textColor="@color/gadoca_text_dark"
+                        android:layout_marginBottom="16dp"
                         android:lineSpacingExtra="4dp"
-                        android:layout_marginBottom="16dp" />
+                        android:text="Mahasiswa aktif dan pengembang aplikasi mobile yang berfokus pada arsitektur modern Android (Jetpack Compose, Kotlin, Material 3) serta pembuatan UI/UX yang intuitif."
+                        android:textColor="@color/gadoca_text_dark"
+                        android:textSize="13sp" />
 
                     <!-- Hobi -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="Hobi"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
                         android:textColor="@color/gadoca_primary"
-                        android:layout_marginBottom="4dp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:text="Ngoding, Menikmati Kopi Hitam, Eksplorasi UI/UX Design, Gaming."
-                        android:textSize="13sp"
                         android:textColor="@color/gadoca_text_dark"
-                        android:layout_marginBottom="16dp" />
+                        android:textSize="13sp" />
 
                     <!-- Kekuatan Terbesar -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="Kekuatan Terbesar"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
                         android:textColor="@color/gadoca_primary"
-                        android:layout_marginBottom="4dp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Kemampuan problem-solving yang cepat, ketekunan dalam debugging, dan konsistensi dalam penulisan kode yang bersih (Clean Code)."
-                        android:textSize="13sp"
-                        android:textColor="@color/gadoca_text_dark" />
+                        android:textColor="@color/gadoca_text_dark"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
