@@ -11,10 +11,11 @@
     <!-- Top App Bar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="64dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingHorizontal="20dp"
+        android:elevation="2dp"
         android:background="@color/gadoca_surface">
 
         <LinearLayout
@@ -24,8 +25,8 @@
             android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@drawable/gambargadoca"
                 android:contentDescription="@string/app_name" />
 
@@ -33,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
-                android:textSize="20sp"
+                android:textSize="21sp"
                 android:textStyle="bold"
                 android:fontFamily="serif"
                 android:textColor="@color/gadoca_primary"
@@ -47,10 +48,13 @@
 
         <ImageView
             android:id="@+id/ivNotification"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
             android:src="@drawable/ic_notification_24"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="Notification" />
     </LinearLayout>
 
@@ -65,44 +69,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="20dp">
 
             <!-- Date & Greeting Row -->
             <TextView
+                android:id="@+id/tvHomeDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Minggu, 4 Oktober 2026"
-                android:textSize="12sp"
+                android:text="Hari ini"
+                android:textSize="13sp"
                 android:textColor="@color/gadoca_text_muted"
-                android:layout_marginBottom="2dp" />
+                android:layout_marginBottom="4dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="12dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pagi, Farhan."
-                    android:textSize="26sp"
+                    android:id="@+id/tvGreeting"
+                    android:text="Selamat datang."
+                    android:textSize="28sp"
                     android:textStyle="bold"
                     android:fontFamily="serif"
                     android:textColor="@color/gadoca_text_dark" />
 
-                <!-- Avatar NP -->
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="NP"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/gadoca_primary"
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_profile_24"
+                    android:padding="10dp"
+                    android:tint="@color/gadoca_primary"
                     android:background="@drawable/bg_avatar_circle"
-                    android:gravity="center" />
+                    android:contentDescription="Profil" />
             </LinearLayout>
 
             <!-- Location & Hours Row -->
@@ -111,12 +117,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="12dp"
+                android:background="@drawable/bg_pill_white">
 
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/ic_location_pin_24"
+                    android:tint="@color/gadoca_primary"
                     android:contentDescription="Location" />
 
                 <TextView
@@ -124,25 +134,32 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text=" Gadoca · Cabang Rumbai"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@color/gadoca_text_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Buka hingga 11.00"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:textColor="@color/gadoca_primary"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/bg_store_open" />
             </LinearLayout>
 
             <!-- Hero Promo Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHomePromo"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginBottom="14dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
+                android:layout_height="190dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
                 app:strokeWidth="0dp">
 
                 <FrameLayout
@@ -160,20 +177,20 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#99000000" />
+                        android:background="@drawable/bg_home_hero_overlay" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:padding="20dp"
+                        android:padding="22dp"
                         android:gravity="bottom">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="SEDIKIT JEDA, BANYAK RASA"
-                            android:textSize="10sp"
+                            android:textSize="11sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.1"
                             android:textColor="#F59E0B"
@@ -182,8 +199,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Favoritmu,\nsiap menemani."
-                            android:textSize="22sp"
+                            android:text="Temukan jeda,\nnikmati rasanya."
+                            android:textSize="24sp"
                             android:textStyle="bold"
                             android:fontFamily="serif"
                             android:textColor="@color/white"
@@ -194,15 +211,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Kopi diracik setelah kamu pesan."
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="#E5E7EB"
                             android:layout_marginBottom="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jelajahi menu →"
-                            android:textSize="12sp"
+                            android:id="@+id/tvBrowseMenu"
+                            android:text="Jelajahi menu  →"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/white" />
                     </LinearLayout>
@@ -213,8 +231,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="16dp"
+                android:layout_marginBottom="26dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/gadoca_secondary">
@@ -224,12 +242,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp">
+                    android:padding="18dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_sparkle_24"
+                        android:tint="@color/gadoca_primary"
                         android:contentDescription="Points" />
 
                     <LinearLayout
@@ -243,14 +262,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="240 poin untuk kamu"
-                            android:textSize="14sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             android:textColor="@color/gadoca_text_dark" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Member Hijau · Lihat hadiahmu"
+                            android:text="Member Hijau · Poin siap ditukar"
                             android:textSize="12sp"
                             android:textColor="@color/gadoca_text_muted" />
                     </LinearLayout>
@@ -259,6 +278,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_chevron_right_24"
+                        android:tint="@color/gadoca_primary"
                         android:contentDescription="Arrow" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -282,6 +302,7 @@
                     android:textColor="@color/gadoca_text_dark" />
 
                 <TextView
+                    android:id="@+id/tvSeeAllFavorites"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lihat semua"
@@ -303,8 +324,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
                     app:strokeWidth="1dp"
                     app:strokeColor="#E5E7EB"
                     app:cardBackgroundColor="@color/gadoca_surface">
@@ -316,7 +337,7 @@
 
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_height="132dp"
                             android:src="@drawable/busta"
                             android:scaleType="centerCrop"
                             android:contentDescription="Es Kopi" />
@@ -363,10 +384,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addHomeBusta"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>
@@ -379,8 +403,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
                     app:strokeWidth="1dp"
                     app:strokeColor="#E5E7EB"
                     app:cardBackgroundColor="@color/gadoca_surface">
@@ -392,7 +416,7 @@
 
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_height="132dp"
                             android:src="@drawable/buter"
                             android:scaleType="centerCrop"
                             android:contentDescription="Croissant" />
@@ -439,10 +463,13 @@
                                     android:textColor="@color/gadoca_primary" />
 
                                 <ImageView
+                                    android:id="@+id/addHomeButterscotch"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_add_24"
                                     android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:clickable="true"
+                                    android:focusable="true"
                                     android:contentDescription="Add" />
                             </LinearLayout>
                         </LinearLayout>
