@@ -14,32 +14,34 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.appbar.MaterialToolbar
+import com.example.project_farhangadoca_mobilee.databinding.ActivityWebBinding
 
 class WebActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityWebBinding
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_web)
+        binding = ActivityWebBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.toolbarWeb)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbarWeb) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
-        val toolbar = findViewById<MaterialToolbar>(R.id.toolbarWeb)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbarWeb)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        toolbar.setNavigationOnClickListener {
+        binding.toolbarWeb.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        val webView = findViewById<WebView>(R.id.webView)
+        val webView = binding.webView
         webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true

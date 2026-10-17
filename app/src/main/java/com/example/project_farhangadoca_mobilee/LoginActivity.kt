@@ -2,14 +2,12 @@ package com.example.project_farhangadoca_mobilee
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.project_farhangadoca_mobilee.databinding.ActivityLoginBinding
-import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
 
@@ -41,16 +39,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Navigate to RegisterActivity when clicking "Belum punya akun? Daftar sekarang"
-        val tvRegisterLink = findViewById<TextView>(R.id.tvRegisterLink)
-        tvRegisterLink.setOnClickListener {
+        binding.tvRegisterLink.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         // Login button click -> Validate credentials
-        val btnLogin = findViewById<MaterialButton>(R.id.btnLogin)
-        btnLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
