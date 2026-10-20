@@ -2,6 +2,7 @@ package com.example.project_farhangadoca_mobilee
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -41,10 +42,32 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
 
-        // Register button click
+        // Register button click -> Validate and navigate to OtpVerificationActivity
         binding.btnRegister.setOnClickListener {
-            // Handle registration action
-            finish()
+            val name = binding.etName.text.toString().trim()
+            val phone = binding.etPhone.text.toString().trim()
+            val username = binding.etUser.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+            val confirmPassword = binding.etConfirmPassword.text.toString().trim()
+
+            if (name.isEmpty() || phone.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Password dan Konfirmasi Password tidak cocok!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Arahkan ke Halaman Verifikasi OTP dengan membawa data registrasi
+            val intent = Intent(this, OtpVerificationActivity::class.java).apply {
+                putExtra("EXTRA_NAME", name)
+                putExtra("EXTRA_PHONE", phone)
+                putExtra("EXTRA_USERNAME", username)
+                putExtra("EXTRA_PASSWORD", password)
+            }
+            startActivity(intent)
         }
     }
 }
