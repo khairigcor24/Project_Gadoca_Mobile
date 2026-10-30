@@ -86,6 +86,26 @@
                 android:textColor="@color/gadoca_text_muted"
                 android:layout_marginBottom="16dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Scan QR Meja"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/gadoca_primary"
+                app:cornerRadius="16dp" />
+
+            <TextView
+                android:id="@+id/tvSelectedTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/gadoca_primary"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Meja terpilih: A1" />
+
             <!-- Search Bar -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

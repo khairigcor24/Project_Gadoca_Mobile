@@ -67,7 +67,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/img_coffee_banner"
+                    android:src="@drawable/cafe"
                     android:scaleType="centerCrop"
                     android:contentDescription="@string/app_name" />
             </com.google.android.material.card.MaterialCardView>

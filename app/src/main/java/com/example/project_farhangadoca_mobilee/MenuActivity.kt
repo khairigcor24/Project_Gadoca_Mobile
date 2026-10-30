@@ -6,16 +6,22 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.example.project_farhangadoca_mobilee.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
+    private lateinit var orderRepository: OrderRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        orderRepository = OrderRepository(this)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -46,6 +53,8 @@ class MenuActivity : AppCompatActivity() {
         binding.tabPesanan.setOnClickListener {
             startActivity(Intent(this, OrderActivity::class.java))
         }
+        binding.btnScanTable.setOnClickListener { scanTableQr() }
+        updateSelectedTable()
 
         val categoryChips = listOf(
             binding.chipSemua to "Semua",
@@ -71,6 +80,44 @@ class MenuActivity : AppCompatActivity() {
         binding.addDarkChoco.setOnClickListener {
             openOrder("DarkChoco", "Minuman · Matcha premium", 25000, R.drawable.dark)
         }
+    }
+
+    private fun scanTableQr() {
+        val options = GmsBarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+            .build()
+        GmsBarcodeScanning.getClient(this, options)
+            .startScan()
+            .addOnSuccessListener { barcode ->
+                val tableId = TableQrCode.parse(barcode.rawValue)
+                if (tableId == null) {
+                    AlertDialog.Builder(this)
+                        .setTitle("QR meja tidak valid")
+                        .setMessage("QR harus berisi GADOCA:TABLE:<identitas meja>.")
+                        .setNegativeButton("Batal", null)
+                        .setPositiveButton("Scan ulang") { _, _ -> scanTableQr() }
+                        .show()
+                } else {
+                    orderRepository.saveSelectedTableId(tableId)
+                    updateSelectedTable()
+                    Toast.makeText(this, "Meja $tableId dipilih.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnCanceledListener { }
+            .addOnFailureListener {
+                AlertDialog.Builder(this)
+                    .setTitle("Pemindai tidak tersedia")
+                    .setMessage("Perbarui Google Play services atau coba lagi pada perangkat lain.")
+                    .setNegativeButton("Tutup", null)
+                    .setPositiveButton("Coba lagi") { _, _ -> scanTableQr() }
+                    .show()
+            }
+    }
+
+    private fun updateSelectedTable() {
+        val tableId = orderRepository.getSelectedTableId()
+        binding.tvSelectedTable.visibility = if (tableId == null) View.GONE else View.VISIBLE
+        binding.tvSelectedTable.text = tableId?.let { "Meja terpilih: $it" }.orEmpty()
     }
 
     private fun openOrder(name: String, description: String, price: Int, imageResId: Int) {

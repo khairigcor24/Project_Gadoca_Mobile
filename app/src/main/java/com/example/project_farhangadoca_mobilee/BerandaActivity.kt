@@ -29,6 +29,7 @@ class BerandaActivity : AppCompatActivity() {
             insets
         }
 
+
         val locale = Locale.forLanguageTag("id-ID")
         binding.tvHomeDate.text = DateFormat.getDateInstance(DateFormat.FULL, locale).format(Date())
         val greeting = when (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {

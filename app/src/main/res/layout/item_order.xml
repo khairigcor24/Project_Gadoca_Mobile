@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/gadoca_surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#E5E7EB"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbSelectOrder"
+                android:layout_width="40dp"
+                android:layout_height="48dp"
+                android:contentDescription="Pilih pesanan"
+                android:padding="0dp"
+                app:buttonTint="@color/gadoca_primary" />
+
+            <ImageView
+                android:id="@+id/ivHistoryProduct"
+                android:layout_width="64dp"
+                android:layout_height="72dp"
+                android:contentDescription="Foto menu pesanan"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/busta" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvHistoryProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gadoca_text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Busta" />
+
+                <TextView
+                    android:id="@+id/tvHistoryProductDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/gadoca_text_muted"
+                    android:textSize="12sp"
+                    tools:text="Kopi · Favorit pelanggan" />
+
+                <TextView
+                    android:id="@+id/tvHistoryProductPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/gadoca_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="Rp28.000" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHistoryPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/gadoca_text_dark"
+            android:textSize="13sp"
+            tools:text="Pembayaran: Tunai · Bayar di kasir" />
+
+        <TextView
+            android:id="@+id/tvHistoryStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/gadoca_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="Pesanan baru · Menunggu diproses" />
+
+        <TextView
+            android:id="@+id/tvHistoryTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/gadoca_text_muted"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="Meja: A1"
+            tools:visibility="visible" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
