@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_home_gradient"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    tools:context=".OnboardingActivity">
+
+    <!-- Top Skip / Close -->
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lewati"
+        android:textSize="14sp"
+        android:textColor="@color/gadoca_text_muted"
+        android:layout_gravity="end"
+        android:padding="8dp"
+        android:layout_marginTop="24dp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Center Illustration Logo -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="80dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="@color/gadoca_surface">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gambargadoca"
+            android:scaleType="centerCrop"
+            android:contentDescription="Onboarding Image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvOnboardingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nikmati Kopi Terbaik"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="@color/gadoca_text_dark"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvOnboardingDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nikmati biji kopi pilihan langsung dari petani lokal terbaik dengan racikan khas Gadoca."
+        android:textSize="14sp"
+        android:textColor="@color/gadoca_text_muted"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="40dp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" />
+
+    <!-- Next / Start Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOnboardingNext"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Lanjut →"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        app:cornerRadius="27dp"
+        app:backgroundTint="@color/gadoca_primary"
+        android:layout_marginBottom="24dp" />
+
+</LinearLayout>

@@ -30,18 +30,21 @@ class SplashActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this)
 
-        // Delay 1.5 seconds then check session
+        // Delay 1.5 seconds then check session and onboarding
         Handler(Looper.getMainLooper()).postDelayed({
-            if (sessionManager.isLoggedIn()) {
-                // Already logged in -> Go to BerandaActivity (or MainActivity)
-                val intent = Intent(this, BerandaActivity::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                // Not logged in -> Go to LoginActivity (or MainActivity welcome)
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+            when {
+                sessionManager.isLoggedIn() -> {
+                    startActivity(Intent(this, BerandaActivity::class.java))
+                    finish()
+                }
+                !sessionManager.isOnboardingShown() -> {
+                    startActivity(Intent(this, OnboardingActivity::class.java))
+                    finish()
+                }
+                else -> {
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                }
             }
         }, 1500)
     }

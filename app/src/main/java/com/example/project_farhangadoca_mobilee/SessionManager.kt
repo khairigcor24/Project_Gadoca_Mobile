@@ -9,6 +9,7 @@ class SessionManager(context: Context) {
     companion object {
         private const val PREF_NAME = "GadocaPrefs"
         private const val KEY_IS_LOGGED_IN = "isLoggedIn"
+        private const val KEY_ONBOARDING_SHOWN = "onboardingShown"
     }
 
     fun setLoggedIn(isLoggedIn: Boolean) {
@@ -17,6 +18,14 @@ class SessionManager(context: Context) {
 
     fun isLoggedIn(): Boolean {
         return prefs.getBoolean(KEY_IS_LOGGED_IN, false)
+    }
+
+    fun setOnboardingShown(shown: Boolean) {
+        prefs.edit().putBoolean(KEY_ONBOARDING_SHOWN, shown).apply()
+    }
+
+    fun isOnboardingShown(): Boolean {
+        return prefs.getBoolean(KEY_ONBOARDING_SHOWN, false)
     }
 
     fun logout() {

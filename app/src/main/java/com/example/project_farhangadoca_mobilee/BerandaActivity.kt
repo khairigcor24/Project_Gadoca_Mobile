@@ -2,6 +2,7 @@ package com.example.project_farhangadoca_mobilee
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.SimpleAdapter
 import java.text.DateFormat
 import java.util.Calendar
 import java.util.Date
@@ -29,7 +30,6 @@ class BerandaActivity : AppCompatActivity() {
             insets
         }
 
-
         val locale = Locale.forLanguageTag("id-ID")
         binding.tvHomeDate.text = DateFormat.getDateInstance(DateFormat.FULL, locale).format(Date())
         val greeting = when (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {
@@ -40,17 +40,27 @@ class BerandaActivity : AppCompatActivity() {
         }
         binding.tvGreeting.text = "Selamat $greeting!"
 
+        // Populate Grid using SimpleAdapter
+        val menuData = listOf(
+            mapOf("title" to "Es Kopi Gula Aren", "price" to "Rp28.000"),
+            mapOf("title" to "Cappuccino", "price" to "Rp30.000"),
+            mapOf("title" to "Butter Croissant", "price" to "Rp24.000"),
+            mapOf("title" to "Matcha Latte", "price" to "Rp32.000")
+        )
+        val simpleAdapter = SimpleAdapter(
+            this,
+            menuData,
+            R.layout.item_grid_menu,
+            arrayOf("title", "price"),
+            intArrayOf(R.id.tvGridTitle, R.id.tvGridSubtitle)
+        )
+        binding.gridFavorites.adapter = simpleAdapter
+
         binding.cardHomePromo.setOnClickListener { openMenu() }
         binding.tvBrowseMenu.setOnClickListener { openMenu() }
         binding.tvSeeAllFavorites.setOnClickListener { openMenu() }
         binding.ivNotification.setOnClickListener {
             startActivity(Intent(this, OrderActivity::class.java))
-        }
-        binding.addHomeBusta.setOnClickListener {
-            openOrder("Busta", "Kopi · Manis dan lembut", 28000, R.drawable.busta)
-        }
-        binding.addHomeButterscotch.setOnClickListener {
-            openOrder("Butterscotch", "Pastry · Renyah berlapis", 24000, R.drawable.buter)
         }
 
         // Bottom Navigation: Click Menu Tab -> Navigate to MenuActivity
