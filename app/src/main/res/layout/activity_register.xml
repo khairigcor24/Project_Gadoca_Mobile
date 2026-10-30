@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/register_subtitle"
+                android:text="Ragistrasi Akun"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:fontFamily="serif"
@@ -74,12 +74,10 @@
                 android:textColor="@color/gadoca_text_muted"
                 android:layout_marginBottom="20dp" />
 
-            <!-- Full Name Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name_hint"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:hint="Nama"
                 android:layout_marginBottom="12dp"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -93,39 +91,14 @@
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Naya Putri"
-                    android:inputType="textPersonName" />
+                    android:text="..."
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Email Field -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email_hint"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="12dp"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxStrokeColor="@color/gadoca_primary"
-                app:hintTextColor="@color/gadoca_primary"
-                app:startIconDrawable="@drawable/ic_email_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="naya.putri@gmail.com"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Phone Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone_hint"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="12dp"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -134,16 +107,37 @@
                 app:boxStrokeColor="@color/gadoca_primary"
                 app:hintTextColor="@color/gadoca_primary"
                 app:startIconDrawable="@drawable/ic_phone_24">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="+62 812 3456 7890"
+                    android:text="..."
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Password Field -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:layout_marginBottom="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxStrokeColor="@color/gadoca_primary"
+                app:hintTextColor="@color/gadoca_primary"
+                app:startIconDrawable="@drawable/ic_person_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="..."
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,12 +162,10 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Confirm Password Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_password_hint"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="16dp"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -183,7 +175,6 @@
                 app:hintTextColor="@color/gadoca_primary"
                 app:startIconDrawable="@drawable/ic_lock_24"
                 app:passwordToggleEnabled="true">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etConfirmPassword"
                     android:layout_width="match_parent"
@@ -192,18 +183,6 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Terms Checkbox -->
-            <CheckBox
-                android:id="@+id/cbTerms"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/terms_agreement"
-                android:textSize="12sp"
-                android:textColor="@color/gadoca_text_dark"
-                android:checked="true"
-                android:layout_marginBottom="20dp" />
-
-            <!-- Login Link -->
             <TextView
                 android:id="@+id/tvLoginLink"
                 android:layout_width="wrap_content"
@@ -216,7 +195,6 @@
                 android:padding="6dp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Primary Button: Buat akun -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"

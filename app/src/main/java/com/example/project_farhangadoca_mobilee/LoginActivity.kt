@@ -1,5 +1,6 @@
 package com.example.project_farhangadoca_mobilee
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -12,7 +13,6 @@ import com.example.project_farhangadoca_mobilee.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +20,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        sessionManager = SessionManager(this)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.toolbarLogin) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -45,24 +43,35 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        // Login button click -> Validate credentials
+        // Login button click -> Validate credentials using 2 rules
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
+            val inputUsername = binding.etUser.text.toString().trim()
+            val inputPassword = binding.etPassword.text.toString().trim()
 
-            // Validasi kredensial (Username/Email dan Password)
-            // Kredensial benar: username/email "farhan" dan password "farhan"
-            if (email == "farhan" && password == "farhan") {
-                sessionManager.setLoggedIn(true)
+            if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
+                Toast.makeText(this, "Username dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Ambil data user dari SharedPreferences (tersimpan saat verifikasi OTP)
+            val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+            val savedUsername = sharedPreferences.getString("KEY_USERNAME", "farhan_user")
+            val savedPassword = sharedPreferences.getString("KEY_PASSWORD", "password123")
+
+            // Aturan Autentikasi:
+            // a. Jika input username == password, maka langsung Boleh Login.
+            // b. Jika input username == username di SharedPreferences DAN input password == password di SharedPreferences, maka Boleh Login.
+            val isRuleA = (inputUsername == inputPassword)
+            val isRuleB = (inputUsername == savedUsername && inputPassword == savedPassword)
+
+            if (isRuleA || isRuleB) {
+                Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, BerandaActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(
-                    this,
-                    "Login salah! Username atau kata sandi salah.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Login Gagal! Username atau Password salah.", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -8,20 +8,26 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.mlkit.vision.barcode.common.Barcode
-import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
-import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.example.project_farhangadoca_mobilee.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private lateinit var orderRepository: OrderRepository
+    private val tableScannerLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != RESULT_OK) return@registerForActivityResult
+            val tableId = result.data?.getStringExtra(TableQrScannerActivity.EXTRA_TABLE_ID)
+                ?: return@registerForActivityResult
+            orderRepository.saveSelectedTableId(tableId)
+            updateSelectedTable()
+            Toast.makeText(this, "Meja $tableId dipilih.", Toast.LENGTH_SHORT).show()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,35 +89,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun scanTableQr() {
-        val options = GmsBarcodeScannerOptions.Builder()
-            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-            .build()
-        GmsBarcodeScanning.getClient(this, options)
-            .startScan()
-            .addOnSuccessListener { barcode ->
-                val tableId = TableQrCode.parse(barcode.rawValue)
-                if (tableId == null) {
-                    AlertDialog.Builder(this)
-                        .setTitle("QR meja tidak valid")
-                        .setMessage("QR harus berisi GADOCA:TABLE:<identitas meja>.")
-                        .setNegativeButton("Batal", null)
-                        .setPositiveButton("Scan ulang") { _, _ -> scanTableQr() }
-                        .show()
-                } else {
-                    orderRepository.saveSelectedTableId(tableId)
-                    updateSelectedTable()
-                    Toast.makeText(this, "Meja $tableId dipilih.", Toast.LENGTH_SHORT).show()
-                }
-            }
-            .addOnCanceledListener { }
-            .addOnFailureListener {
-                AlertDialog.Builder(this)
-                    .setTitle("Pemindai tidak tersedia")
-                    .setMessage("Perbarui Google Play services atau coba lagi pada perangkat lain.")
-                    .setNegativeButton("Tutup", null)
-                    .setPositiveButton("Coba lagi") { _, _ -> scanTableQr() }
-                    .show()
-            }
+        tableScannerLauncher.launch(Intent(this, TableQrScannerActivity::class.java))
     }
 
     private fun updateSelectedTable() {
