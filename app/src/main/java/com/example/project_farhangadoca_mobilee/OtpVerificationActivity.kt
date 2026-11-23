@@ -2,13 +2,20 @@ package com.example.project_farhangadoca_mobilee
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.project_farhangadoca_mobilee.data.api.SupabaseClient
+import com.example.project_farhangadoca_mobilee.data.model.UserRequestModel
 import com.example.project_farhangadoca_mobilee.databinding.ActivityOtpVerificationBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class OtpVerificationActivity : AppCompatActivity() {
 
@@ -38,25 +45,50 @@ class OtpVerificationActivity : AppCompatActivity() {
 
             // Validasi: Jika kode OTP yang dimasukkan SAMA dengan nomor handphone registrasi
             if (enteredOtp.isNotEmpty() && enteredOtp == regPhone) {
-                // Verifikasi sukses: Simpan data user ke SharedPreferences
-                val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-                sharedPreferences.edit().apply {
-                    putString("KEY_NAME", regName)
-                    putString("KEY_PHONE", regPhone)
-                    putString("KEY_USERNAME", regUsername)
-                    putString("KEY_PASSWORD", regPassword)
-                    putBoolean("KEY_IS_VERIFIED", true)
-                    apply()
-                }
+                // Kirim data ke Supabase REST API (Tabel users di schema mobile)
+                val userRequest = UserRequestModel(
+                    nama = regName,
+                    email = "$regUsername@gadoca.com",
+                    password = regPassword,
+                    no_hp = regPhone
+                )
 
-                Toast.makeText(this, "Verifikasi OTP Berhasil! Silakan Login.", Toast.LENGTH_LONG).show()
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val response = SupabaseClient.apiService.registerUser(userRequest)
+                        if (response.isSuccessful) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(this@OtpVerificationActivity, "Registrasi berhasil disimpan ke Supabase!", Toast.LENGTH_LONG).show()
 
-                // Arahkan kembali ke Halaman Login (LoginActivity)
-                val intent = Intent(this, LoginActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                val intent = Intent(this@OtpVerificationActivity, LoginActivity::class.java).apply {
+                                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                }
+                                startActivity(intent)
+                                finish()
+                            }
+                        } else {
+                            val errorBody = response.errorBody()?.string() ?: "Unknown error"
+                            Log.e("SupabaseRegister", "Error Code: ${response.code()}, Body: $errorBody")
+                            withContext(Dispatchers.Main) {
+                                MaterialAlertDialogBuilder(this@OtpVerificationActivity)
+                                    .setTitle("Gagal Simpan ke Supabase")
+                                    .setMessage("Error ${response.code()}: $errorBody")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        Log.e("SupabaseRegister", "Exception: ${e.message}")
+                        withContext(Dispatchers.Main) {
+                            MaterialAlertDialogBuilder(this@OtpVerificationActivity)
+                                .setTitle("Koneksi Gagal")
+                                .setMessage("Pesan: ${e.message}")
+                                .setPositiveButton("OK", null)
+                                .show()
+                        }
+                    }
                 }
-                startActivity(intent)
-                finish()
             } else {
                 // Jika OTP berbeda atau kosong, tampilkan error menggunakan MaterialAlertDialog
                 MaterialAlertDialogBuilder(this)
